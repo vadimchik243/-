@@ -1,0 +1,1 @@
+console.log('NebulaDrop v2 JS loaded successfully!');
