@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NebulaDrop — аирдроп токена NBL</title>
+  <meta name="description" content="Официальная страница аирдропа токена NBL проекта NebulaDrop. Подключите кошелек, выполните задания и заберите свою долю." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net/npm" crossorigin>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.svg" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="logo.svg" alt="NebulaDrop logo" width="36" height="36" />
+      <span class="brand-name">NebulaDrop</span>
+    </div>
+    <nav class="nav">
+      <a href="#how">Как участвовать</a>
+      <a href="#tasks">Задания</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button id="connectBtn" class="btn btn-primary">Подключить кошелёк</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Аирдроп <span class="accent">NBL</span> открыт</h1>
+      <p class="lead">Подключите EVM‑кошелёк (MetaMask и др.), выполните простые действия и получите бесплатные токены <strong>NBL</strong> проекта <strong>NebulaDrop</strong>.</p>
+      <div class="cta">
+        <button id="claimBtn" class="btn btn-cta" disabled>Забрать токены</button>
+        <div id="status" class="status">Кошелёк не подключен</div>
+      </div>
+      <div class="countdown" aria-live="polite">
+        До конца кампании: <span id="countdown"></span>
+      </div>
+    </section>
+
+    <section id="how" class="panel">
+      <h2>Как участвовать</h2>
+      <ol class="steps">
+        <li>Подключите EVM‑кошелёк (например, MetaMask).</li>
+        <li>Выполните задания ниже — система начислит баллы.</li>
+        <li>Нажмите «Забрать токены». Мы подпишем сообщение для подтверждения владения адресом — <em>без газ‑комиссии</em>.</li>
+      </ol>
+      <p class="note">Важно: мы <strong>никогда</strong> не запрашиваем приватные ключи или seed‑фразы. Запрашивается только подпись произвольного сообщения.</p>
+    </section>
+
+    <section id="tasks" class="panel">
+      <h2>Задания (по желанию)</h2>
+      <ul class="tasks">
+        <li><label><input type="checkbox" data-points="50"> Подписаться на X/Twitter проекта</label></li>
+        <li><label><input type="checkbox" data-points="50"> Присоединиться к Discord</label></li>
+        <li><label><input type="checkbox" data-points="100"> Использовать демо‑dApp (тестнет)</label></li>
+        <li><label><input type="checkbox" data-points="25"> Репост объявления об аирдропе</label></li>
+      </ul>
+      <div class="score">Ваши баллы: <span id="points">0</span></div>
+    </section>
+
+    <section class="panel tokenomics">
+      <h2>Токеномика NBL</h2>
+      <div class="grid">
+        <div><strong>Общее предложение:</strong> 1,000,000,000 NBL</div>
+        <div><strong>Аирдроп сообществу:</strong> 10% (100,000,000)</div>
+        <div><strong>Эмиссия:</strong> фиксированная, без инфляции</div>
+        <div><strong>Сеть:</strong> EVM (Ethereum/Layer2) — для демо</div>
+      </div>
+    </section>
+
+    <section id="faq" class="panel">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Это настоящие токены?</summary>
+        <p>NBL — вымышленный учебный токен. По желанию вы можете развернуть реальный ERC‑20 в тестовой сети и привязать контракт к кнопке «Забрать токены».</p>
+      </details>
+      <details>
+        <summary>Есть ли газ‑комиссия?</summary>
+        <p>Для подписи сообщения — нет. Для реального клима в блокчейне потребуется газ соответствующей сети.</p>
+      </details>
+      <details>
+        <summary>Как подключить реальный бэкенд?</summary>
+        <p>Укажите адрес вашего API в переменной <code>API_BASE</code> внутри <code>app.js</code>. Бэкенд может проверять подпись и ставить адрес в очередь на распределение.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 NebulaDrop. Все права защищены. Это демо‑сайт для учебных целей.</p>
+    <p class="disclaimer">Отказ от ответственности: криптоактивы сопряжены с риском. Ничего из указанного не является финансовым советом.</p>
+  </footer>
+
+  <script>
+    window.AIRDROP_END = "2026-01-31T23:59:59Z";
+    window.TOKEN_SYMBOL = "NBL";
+    window.PROJECT_NAME = "NebulaDrop";
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.1/dist/ethers.umd.min.js" integrity="" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
